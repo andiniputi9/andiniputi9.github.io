@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Puti Andini - QA Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-text-primary: #111827;
+      --color-text-secondary: #6b7280;
+      --color-accent: #2563eb;
+      --color-accent-hover: #1e40af;
+      --color-shadow: rgba(0, 0, 0, 0.05);
+      --card-bg: #f9fafb;
+      --overlay-dark: rgba(17, 24, 39, 0.6);
+      --border-radius: 12px;
+      --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      --transition: 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-bg);
+      font-family: var(--font-family);
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover,
+    a:focus-visible {
+      color: var(--color-accent-hover);
+      outline-offset: 4px;
+      outline-color: var(--color-accent-hover);
+      outline-style: solid;
+      outline-width: 2px;
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-bg);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      box-shadow: 0 2px 6px var(--color-shadow);
+      backdrop-filter: saturate(180%) blur(10px);
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--color-accent);
+      letter-spacing: 0.1em;
+      user-select: none;
+      cursor: default;
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      padding: 6px 0;
+      position: relative;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--color-accent);
+      outline-offset: 4px;
+      outline-color: var(--color-accent);
+    }
+
+    /* Hero Section with background image */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 140px 24px 90px;
+      color: white;
+      background:
+        linear-gradient(var(--overlay-dark), var(--overlay-dark)),
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center / cover;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 88%);
+      user-select: none;
+    }
+    .hero h1 {
+      font-size: clamp(3.75rem, 7vw, 5rem);
+      font-weight: 800;
+      margin: 0 0 12px;
+      letter-spacing: 0.1em;
+      text-shadow:
+        0 4px 10px rgba(0,0,0,0.7),
+        0 6px 18px rgba(0,0,0,0.5);
+    }
+    .hero h2 {
+      font-weight: 600;
+      font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+      margin: 0 0 40px;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    /* Hero call to action button */
+    .hero .cta-btn {
+      background-color: var(--color-accent);
+      color: white;
+      font-weight: 700;
+      font-size: 1.4rem;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.6);
+      transition: background-color var(--transition), box-shadow var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      align-self: center;
+    }
+    .hero .cta-btn:hover,
+    .hero .cta-btn:focus-visible {
+      background-color: var(--color-accent-hover);
+      box-shadow: 0 12px 35px rgba(30, 64, 175, 0.85);
+      outline: none;
+    }
+
+    /* Contact Links in hero */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      font-size: 1.3rem;
+      margin-top: 50px;
+      user-select: none;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      color: #dbeafe;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--transition), color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+    .contact-links a:hover,
+    .contact-links a:focus-visible {
+      color: white;
+      border-color: white;
+    }
+    .contact-links svg {
+      stroke: currentColor;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    /* Main content */
+    main {
+      padding: 88px 24px 112px;
+      background: var(--color-bg);
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: 0 8px 48px var(--color-shadow);
+      max-width: 1120px;
+      margin: -110px auto 96px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 72px;
+    }
+    /* Fix for icon overlapping in h3 */
+    h3 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      margin-bottom: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: 0.05em;
+      user-select: none;
+      vertical-align: middle;
+      line-height: 1.1;
+    }
+
+    /* Section icon next to h3 */
+    .section-icon {
+      stroke: var(--color-accent);
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      line-height: 1;
+      vertical-align: middle;
+      display: inline-flex;
+      /* margin-right: 12px moved to gap in parent */
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 8px 22px var(--color-shadow);
+      padding: 32px 40px;
+      margin-bottom: 28px;
+      transition: box-shadow var(--transition);
+      user-select: text;
+    }
+    .card:hover,
+    .card:focus-within {
+      box-shadow: 0 14px 40px rgba(37, 99, 235, 0.35);
+      outline: none;
+    }
+
+    /* Experience Timeline */
+    .experience-list {
+      border-left: 3px solid var(--color-accent);
+      display: flex;
+      flex-direction: column;
+      gap: 42px;
+      padding-left: 42px;
+    }
+
+    .experience-item {
+      position: relative;
+      padding-left: 48px;
+    }
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 8px;
+      background: var(--color-bg);
+      border: 3px solid var(--color-accent);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      box-shadow: 0 0 8px rgba(37,99,235,0.3);
+    }
+
+    .job-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: var(--color-accent);
+      user-select: text;
+    }
+    .company-name {
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 6px;
+      user-select: text;
+    }
+    .duration {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: 10px;
+      user-select: text;
+    }
+    .location {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+      user-select: text;
+    }
+    .description {
+      font-size: 1.12rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      white-space: pre-line;
+      user-select: text;
+    }
+
+    /* Skills list */
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      padding: 0;
+      margin: 0;
+      user-select: none;
+    }
+    .skills-list li {
+      background: var(--color-accent);
+      color: white;
+      border-radius: 28px;
+      padding: 10px 28px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.6);
+      transition: background-color var(--transition), transform 0.25s ease;
+    }
+    .skills-list li:hover,
+    .skills-list li:focus-visible {
+      background-color: var(--color-accent-hover);
+      transform: scale(1.05);
+      cursor: default;
+      outline: none;
+    }
+
+    /* Tools & Technologies (new) */
+    .tools-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+      user-select: none;
+    }
+    .tools-list li {
+      background: #e0e7ff;
+      color: #1e40af;
+      border-radius: 100px;
+      padding: 12px 28px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+      transition: background-color var(--transition), transform 0.25s ease;
+    }
+    .tools-list li:hover,
+    .tools-list li:focus-visible {
+      background-color: #c7d2fe;
+      transform: scale(1.05);
+      cursor: default;
+      outline: none;
+    }
+
+    /* Certifications */
+    .certifications-list {
+      list-style: disc;
+      padding-left: 24px;
+      color: var(--color-text-secondary);
+      font-size: 1.2rem;
+      line-height: 1.6;
+      user-select: text;
+    }
+    .certifications-list li {
+      margin-bottom: 14px;
+    }
+
+    /* Languages */
+    .languages-list {
+      list-style: none;
+      padding-left: 0;
+      color: var(--color-text-secondary);
+      font-size: 1.2rem;
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      user-select: none;
+    }
+    .languages-list li {
+      font-weight: 700;
+      background: #e0e7ff;
+      color: #1e40af;
+      border-radius: 60px;
+      padding: 10px 28px;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Contact section */
+    #contact .card p {
+      font-size: 1.2rem;
+      color: var(--color-text-primary);
+      user-select: text;
+      line-height: 1.6;
+    }
+    #contact .card a {
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--color-accent);
+    }
+    #contact .card a:hover,
+    #contact .card a:focus-visible {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      padding: 28px 16px 36px;
+      user-select: none;
+    }
+
+    /* Accessibility focus outline override for keyboard navigation */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline-offset: 4px;
+      outline-width: 3px;
+      outline-color: var(--color-accent);
+      outline-style: solid;
+      outline-radius: 8px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Primary navigation">
+      <div class="logo" aria-label="Profile logo">PUTI ANDINI</div>
+      <div class="nav-links" role="list">
+        <a href="#summary" tabindex="0">Summary</a>
+        <a href="#experience" tabindex="0">Experience</a>
+        <a href="#skills" tabindex="0">Skills</a>
+        <a href="#tools" tabindex="0">Tools</a>
+        <a href="#certifications" tabindex="0">Certifications</a>
+        <a href="#contact" tabindex="0">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <h1 id="hero-title" tabindex="0">Puti Andini</h1>
+    <h2 tabindex="0">Quality Assurance Lead | QA Engineer | Tech Enthusiast</h2>
+    <button class="cta-btn" tabindex="0" aria-label="Explore my QA expertise" onclick="window.location='#experience'">Explore My QA Expertise</button>
+    <div class="contact-links" role="list" aria-label="Contact links">
+      <a href="mailto:andiniputi9@gmail.com" aria-label="Send email to Puti Andini" tabindex="0">
+        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        Email
+      </a>
+      <a href="tel:+6287715230618" aria-label="Call Puti Andini" tabindex="0">
+        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.09 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Phone
+      </a>
+      <a href="https://www.linkedin.com/in/puti-andini" target="_blank" rel="noopener" aria-label="LinkedIn profile" tabindex="0">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="width:24px;height:24px;"><path d="M4.98 3.5C3.34 3.5 2 4.86 2 6.46c0 1.6 1.32 2.97 3 2.97h.04c1.64 0 2.98-1.37 2.98-2.97-.03-1.6-1.34-2.96-3-2.96zm-.02 4.9h-.04c-.82 0-1.4-.54-1.4-1.07 0-.6.6-1.07 1.46-1.07h.02c.83 0 1.4.47 1.42 1.07-.01.53-.59 1.07-1.46 1.07zM2.48 8.88v11.5h3.04v-11.5h-3.04zm4.72 0v11.5h3v-6.37c0-1.6 1.35-3.13 3.45-3.13 1.52 0 2.47.98 2.47 2.92v6.59h3v-7.04c0-3.77-2.01-5.54-4.69-5.54-2.15 0-3.11 1.17-3.63 2v.01l-.04.73z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </section>
+
+  <main class="container" role="main" aria-label="Portfolio main content">
+
+    <section id="summary" aria-labelledby="summary-title">
+      <h3 id="summary-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 0"/></svg>
+        Summary
+      </h3>
+      <div class="card" tabindex="0">
+        <p>
+          A professional QA Engineer with a strong background in Quality Assurance. Proficient in Manual testing, scripting UAT, and deployment. Skilled in quick learning, effective communication, hard work, and self-confidence. Thrives in dynamic environments, adapts easily, and leads teams under pressure. Motivated and responsible, aiming to leverage strengths to achieve aspirations.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience" aria-labelledby="experience-title">
+      <h3 id="experience-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6v12M16 6v12"/><rect x="6" y="10" width="12" height="4" rx="1"/></svg>
+        Professional Experience
+      </h3>
+      <ol class="experience-list">
+        <li class="experience-item" tabindex="0" aria-label="System Integration Test Lead role at Bank Syariah Indonesia">
+          <div class="job-title">System Integration Test Lead</div>
+          <div class="company-name">PT Bank Syariah Indonesia Tbk.</div>
+          <div class="duration">August 2024 – Present (11 months)</div>
+          <div class="location">Jakarta, Indonesia</div>
+          <div class="description">
+            Leading system integration testing on a major Core Banking Upgrade for Indonesia's largest Sharia bank. Managing a 25-member team, strategizing testing plans, conducting regression, and synchronizing with multiple teams.
+          </div>
+        </li>
+
+        <li class="experience-item" tabindex="0" aria-label="Quality Assurance Tester role in London">
+          <div class="job-title">Quality Assurance Tester</div>
+          <div class="company-name">Self-employed (London Area, UK)</div>
+          <div class="duration">July 2022 – Present (3 years)</div>
+          <div class="description">
+            Manual testing for multiple apps (TikTok, Facebook, WhatsApp, Instagram), exploratory testing, bug logging, and validating cross-platform functionality.
+          </div>
+        </li>
+
+        <li class="experience-item" tabindex="0" aria-label="QA Lead at KlikDokter">
+          <div class="job-title">QA Lead</div>
+          <div class="company-name">KlikDokter (Kalbe Farma group)</div>
+          <div class="duration">September 2022 – August 2024 (2 years)</div>
+          <div class="location">Jakarta, Indonesia</div>
+          <div class="description">
+            Developed automated tests, led a 13-member team emphasizing backups, collaborated cross-functionally, and managed test plans and reports.
+          </div>
+        </li>
+
+        <li class="experience-item" tabindex="0" aria-label="QA Engineer at KlikDokter">
+          <div class="job-title">QA Engineer</div>
+          <div class="company-name">KlikDokter</div>
+          <div class="duration">September 2021 – September 2022 (1 year 1 month)</div>
+          <div class="location">Jakarta Raya, Indonesia</div>
+          <div class="description">
+            Designed test cases for web and mobile, retested bugs, supported deployments, and participated in agile ceremonies.
+          </div>
+        </li>
+
+        <li class="experience-item" tabindex="0" aria-label="Software Tester at PT Bank Central Asia">
+          <div class="job-title">Software Tester</div>
+          <div class="company-name">PT Bank Central Asia Tbk</div>
+          <div class="duration">September 2020 – September 2021 (1 year 1 month)</div>
+          <div class="location">Jakarta Raya, Indonesia</div>
+          <div class="description">
+            Executed comprehensive test scenarios, reviewed specs, conducted UAT, tracked bugs, monitored metrics, and ensured product quality.
+          </div>
+        </li>
+
+        <li class="experience-item" tabindex="0" aria-label="Warehouse Administrator roles">
+          <div class="job-title">Warehouse & Production Administrator</div>
+          <div class="company-name">Multiple Companies</div>
+          <div class="duration">2011 – 2020</div>
+          <div class="description">
+            Managed warehouse and production admin roles, ensuring efficient operations over nearly a decade.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <h3 id="skills-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+        Top Skills
+      </h3>
+      <ul class="skills-list" aria-label="Top skills list" role="list">
+        <li>Food Safety</li>
+        <li>Enterprise Resource Planning (ERP)</li>
+        <li>Warehouse Operations</li>
+        <li>Manual Testing</li>
+        <li>Scripting UAT</li>
+        <li>Deployment</li>
+      </ul>
+    </section>
+
+    <section id="tools" aria-labelledby="tools-title">
+      <h3 id="tools-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l2-2m0 0l7-7 7 7M13 5v6a1 1 0 001 1h3m-4 4h4"/></svg>
+        Tools &amp; Technologies
+      </h3>
+      <ul class="tools-list" aria-label="QA tools and technologies" role="list">
+        <li>JIRA</li>
+        <li>Xray</li>
+        <li>Zephyr</li>
+        <li>ALM</li>
+        <li>Selenium</li>
+        <li>Postman</li>
+        <li>SQL</li>
+        <li>Manual Testing</li>
+        <li>API Testing</li>
+      </ul>
+    </section>
+
+    <section id="certifications" aria-labelledby="certifications-title">
+      <h3 id="certifications-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>
+        Certifications
+      </h3>
+      <ul class="certifications-list" role="list">
+        <li>Software Testing: Process, Technique &amp; Tools</li>
+      </ul>
+    </section>
+
+    <section id="languages" aria-labelledby="languages-title">
+      <h3 id="languages-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 0"/></svg>
+        Languages
+      </h3>
+      <ul class="languages-list" aria-label="Languages spoken" role="list">
+        <li>Bahasa Inggris (Limited Working)</li>
+        <li>Bahasa Korea (Elementary)</li>
+      </ul>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h3 id="contact-title">
+        <svg class="section-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V7a2 2 0 0 0-2-2h-3a4 4 0 0 0-8 0H6a2 2 0 0 0-2 2v1m2 12h12a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2z"/></svg>
+        Contact
+      </h3>
+      <div class="card" tabindex="0">
+        <p>
+          Mobile: <a href="tel:+6287715230618">0877-1523-0618</a><br />
+          Email: <a href="mailto:andiniputi9@gmail.com">andiniputi9@gmail.com</a><br />
+          LinkedIn: <a href="https://www.linkedin.com/in/puti-andini" target="_blank" rel="noopener">linkedin.com/in/puti-andini</a><br />
+          Location: Banten, Indonesia
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Puti Andini — Quality Assurance Lead &amp; QA Engineer
+  </footer>
+</body>
+</html>
+
